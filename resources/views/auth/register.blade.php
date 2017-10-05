@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Registry Page</title>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href=/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <!-- Custom styles for this template -->
-    <link href="/css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/cover.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -17,26 +17,27 @@
             <div class="inner">
               <h3 class="masthead-brand">RegDem</h3>
               <nav class="nav nav-masthead">
-                <a class="nav-link active" href="#">Main</a>
+                <a class="nav-link active" href="/">Main</a>
                 <a class="nav-link" href="#">Login</a>
-                <a class="nav-link" href="#">Registry</a>
+                <a class="nav-link" href="/register">Registry</a>
               </nav>
             </div>
           </div>
           <div class="container">
 
-            <form class="form-signin">
-              <h2 class="form-signin-heading">Please sign in</h2>
-              <label for="inputEmail" class="sr-only">Email address</label>
-              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-              <label for="inputPassword" class="sr-only">Password</label>
+            <form class="form-signin" method="post">
+                {!! csrf_field() !!}
+              <h2 class="form-signin-heading">Registration</h2>
+              <input style="margin-top: 10px;" type="text" id="inputLogin" class="form-control" placeholder="Login" required autofocus>
+                <input style="margin: 10px 0;" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
               <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              <div class="checkbox">
+              <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm password" required>
+              <!--<div class="checkbox">
                 <label>
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+              </div>-->
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Registration</button>
             </form>
 
           </div> <!-- /container -->
@@ -48,6 +49,8 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   </body>
 </html>
