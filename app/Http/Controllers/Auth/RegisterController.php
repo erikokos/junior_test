@@ -49,7 +49,6 @@ class RegisterController extends Controller
 
         $this->validator($request->all())->validate();
 
-        dd();
         //event(new Registered($user = $this->create($request->all())));
 
         //$this->guard()->login($user);
@@ -84,6 +83,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'secret_phrase' => $data['secret_phrase']
         ]);
     }
 }
