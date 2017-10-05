@@ -28,11 +28,11 @@
             <form class="form-signin" method="post">
                 {!! csrf_field() !!}
               <h2 class="form-signin-heading">Registration</h2>
-              <input style="margin-top: 10px;" type="text" id="inputName" class="form-control" placeholder="Name" required autofocus>
-                <input style="margin: 10px 0;" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-              <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm password" required>
-                <input style="margin-bottom: 10px;" type="text" id="inputSecretPhrase" class="form-control" placeholder="Secret phrase" required>
+              <input style="margin-top: 10px;" type="text" id="inputName" class="form-control" name="name" placeholder="Name" required autofocus>
+                <input style="margin: 10px 0;" type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required>
+              <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              <input name="password_confirmation" type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm password" required>
+                <input style="margin-bottom: 10px;" type="text" id="inputSecretPhrase" name="secret_phrase" class="form-control" placeholder="Secret phrase" required>
               <!--<div class="checkbox">
                 <label>
                   <input type="checkbox" value="remember-me"> Remember me
