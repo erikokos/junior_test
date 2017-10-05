@@ -16,11 +16,10 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'guest'], function () {
-    Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
+    Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('/register', 'Auth\RegisterController@register');
 });
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/login', 'Auth\RegisterController@showRegistrationForm');
-    Route::post('/login', 'Auth\RegisterController@login');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/account', 'AccountController@index')->name('account');
 });

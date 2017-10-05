@@ -48,13 +48,28 @@ class RegisterController extends Controller
     {
 
         $this->validator($request->all())->validate();
-
         //event(new Registered($user = $this->create($request->all())));
 
-        //$this->guard()->login($user);
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $secret_phrase = $request->input('secret_phrase');
+        $objUser = $this->create([
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+            'secret_phrase' => $secret_phrase
+        ]);
+        if(!($objUser instanceof User)) {
+            return back()->with('error', 'ERROR!!!!!');
+        }
+        $this->guard()->login($objUser);
+
+        return redirect(route('account'))->with('success', 'Congratulation!');
+
+        /*return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());*/
     }
     /**
      * Get a validator for an incoming registration request.
@@ -68,6 +83,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'secret_phrase' => 'required|string|min:6|confirmed',
         ]);
     }
 
