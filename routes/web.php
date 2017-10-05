@@ -19,3 +19,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', 'Auth\RegisterController@showRegistrationForm');
     Route::post('/register', 'Auth\RegisterController@register');
 });
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', 'Auth\RegisterController@showRegistrationForm');
+    Route::post('/login', 'Auth\RegisterController@login');
+});
